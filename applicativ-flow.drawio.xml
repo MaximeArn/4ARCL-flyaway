@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram id="booking-flow-v1" name="Page-1">
+    <mxGraphModel dx="2304" dy="1231" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;" value="FlyAway Airlines — Flux de Réservation" vertex="1">
+          <mxGeometry height="50" width="1000" x="300" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zone_sync" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=12;opacity=60;" value="Chemin critique — Appels synchrones (REST)" vertex="1">
+          <mxGeometry height="1075" width="510" x="480" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="zone_async" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=12;opacity=60;" value="Flux asynchrones (SNS / SQS)" vertex="1">
+          <mxGeometry height="628" width="520" x="1050" y="547" as="geometry" />
+        </mxCell>
+        <mxCell id="client" parent="1" style="shape=mxgraph.aws4.user;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;verticalLabelPosition=bottom;verticalAlign=top;" value="Client&#xa;(Application Mobile / Web)" vertex="1">
+          <mxGeometry height="70" width="70" x="692" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="booking" parent="1" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eks;labelBackgroundColor=#ffffff;sketch=0;fontSize=13;fontStyle=1;verticalLabelPosition=bottom;verticalAlign=top;" value="BookingService" vertex="1">
+          <mxGeometry height="70" width="70" x="692" y="345" as="geometry" />
+        </mxCell>
+        <mxCell id="flight" parent="1" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eks;labelBackgroundColor=#ffffff;sketch=0;fontSize=13;fontStyle=1;verticalLabelPosition=bottom;verticalAlign=top;" value="FlightService" vertex="1">
+          <mxGeometry height="70" width="70" x="692" y="525" as="geometry" />
+        </mxCell>
+        <mxCell id="payment" parent="1" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eks;labelBackgroundColor=#FFE0E0;sketch=0;fontSize=13;fontStyle=1;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#FFE0E0;strokeColor=#CC0000;" value="PaymentService&#xa;(PCI-DSS isolé)" vertex="1">
+          <mxGeometry height="70" width="70" x="692" y="715" as="geometry" />
+        </mxCell>
+        <mxCell id="stripe" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;fontStyle=1;" value="Stripe / Adyen&#xa;(Prestataire PCI-DSS Niveau 1)" vertex="1">
+          <mxGeometry height="60" width="180" x="642" y="875" as="geometry" />
+        </mxCell>
+        <mxCell id="aurora" parent="1" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.aurora;labelBackgroundColor=#ffffff;sketch=0;fontSize=13;fontStyle=1;verticalLabelPosition=bottom;verticalAlign=top;" value="Aurora&#xa;(Confirmation)" vertex="1">
+          <mxGeometry height="70" width="70" x="692" y="1025" as="geometry" />
+        </mxCell>
+        <mxCell id="redis_zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=10;opacity=80;" value="Soft Lock" vertex="1">
+          <mxGeometry height="160" width="240" x="100" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="redis" parent="1" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.elasticache;labelBackgroundColor=#ffffff;sketch=0;fontSize=12;verticalLabelPosition=bottom;verticalAlign=top;" value="ElastiCache Redis&#xa;TTL 10 min" vertex="1">
+          <mxGeometry height="60" width="60" x="185" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="sns" parent="1" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sns;labelBackgroundColor=#ffffff;sketch=0;fontSize=12;verticalLabelPosition=bottom;verticalAlign=top;" value="Amazon SNS" vertex="1">
+          <mxGeometry height="60" width="60" x="1257" y="647" as="geometry" />
+        </mxCell>
+        <mxCell id="sqs_notif" parent="1" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sqs;labelBackgroundColor=#ffffff;sketch=0;fontSize=12;verticalLabelPosition=bottom;verticalAlign=top;" value="SQS&#xa;Notifications" vertex="1">
+          <mxGeometry height="60" width="60" x="1197" y="787" as="geometry" />
+        </mxCell>
+        <mxCell id="sqs_history" parent="1" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sqs;labelBackgroundColor=#ffffff;sketch=0;fontSize=12;verticalLabelPosition=bottom;verticalAlign=top;" value="SQS&#xa;Historique" vertex="1">
+          <mxGeometry height="60" width="60" x="1367" y="787" as="geometry" />
+        </mxCell>
+        <mxCell id="notif_service" parent="1" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eks;labelBackgroundColor=#ffffff;sketch=0;fontSize=12;verticalLabelPosition=bottom;verticalAlign=top;" value="NotificationService&#xa;(Email / SMS)" vertex="1">
+          <mxGeometry height="60" width="60" x="1197" y="927" as="geometry" />
+        </mxCell>
+        <mxCell id="history_service" parent="1" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eks;labelBackgroundColor=#ffffff;sketch=0;fontSize=12;verticalLabelPosition=bottom;verticalAlign=top;" value="HistoryService" vertex="1">
+          <mxGeometry height="60" width="60" x="1367" y="927" as="geometry" />
+        </mxCell>
+        <mxCell id="dynamo" parent="1" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.dynamodb;labelBackgroundColor=#ffffff;sketch=0;fontSize=12;verticalLabelPosition=bottom;verticalAlign=top;" value="DynamoDB" vertex="1">
+          <mxGeometry height="60" width="60" x="1367" y="1037" as="geometry" />
+        </mxCell>
+        <mxCell id="step1" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#6c8ebf;fontColor=#ffffff;fontSize=13;fontStyle=1;" value="1" vertex="1">
+          <mxGeometry height="30" width="30" x="617" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="step2" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#6c8ebf;fontColor=#ffffff;fontSize=13;fontStyle=1;" value="2" vertex="1">
+          <mxGeometry height="30" width="30" x="617" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="step3" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#6c8ebf;fontColor=#ffffff;fontSize=13;fontStyle=1;" value="3" vertex="1">
+          <mxGeometry height="30" width="30" x="617" y="625" as="geometry" />
+        </mxCell>
+        <mxCell id="step4" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#6c8ebf;fontColor=#ffffff;fontSize=13;fontStyle=1;" value="4" vertex="1">
+          <mxGeometry height="30" width="30" x="617" y="815" as="geometry" />
+        </mxCell>
+        <mxCell id="step5" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#6c8ebf;fontColor=#ffffff;fontSize=13;fontStyle=1;" value="5" vertex="1">
+          <mxGeometry height="30" width="30" x="617" y="985" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="client" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#6c8ebf;strokeWidth=2.5;fontSize=11;fontStyle=1;" target="booking" value="Demande de réservation">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="booking" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#6c8ebf;strokeWidth=2.5;fontSize=11;fontStyle=1;" target="flight" value="Vérification disponibilité + blocage siège">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="flight" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#6c8ebf;strokeWidth=2.5;fontSize=11;fontStyle=1;" target="payment" value="Initiation paiement (timeout 30s)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#CC0000;strokeWidth=2.5;fontSize=11;fontStyle=1;" target="stripe" value="Tokenisation + traitement carte">
+          <mxGeometry relative="1" x="-1" y="-10" as="geometry">
+            <mxPoint x="10" y="-10" as="offset" />
+            <mxPoint x="732" y="840" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="stripe" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#6c8ebf;strokeWidth=2.5;fontSize=11;fontStyle=1;" target="aurora" value="Confirmation réservation">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_async_trigger" edge="1" parent="1" source="aurora" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9673a6;strokeWidth=2.5;dashed=1;fontSize=11;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="sns" value="Événement de confirmation">
+          <mxGeometry relative="1" x="-0.7267" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1112" y="1060" />
+              <mxPoint x="1112" y="677" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_sns_notif" edge="1" parent="1" source="sns" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9673a6;strokeWidth=2;dashed=1;" target="sqs_notif">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sns_hist" edge="1" parent="1" source="sns" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9673a6;strokeWidth=2;dashed=1;" target="sqs_history">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sqs_notif" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9673a6;strokeWidth=2;dashed=1;" target="notif_service">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1227" y="887" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_sqs_hist" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9673a6;strokeWidth=2;dashed=1;" target="history_service">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1397" y="887" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_hist_dynamo" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9673a6;strokeWidth=2;dashed=1;" target="dynamo">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1397" y="1007" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_redis_set" edge="1" parent="1" source="flight" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#d6b656;strokeWidth=2;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontSize=11;fontStyle=1;" target="redis" value="Soft lock siège">
+          <mxGeometry relative="1" x="0.543" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_redis_release" edge="1" parent="1" source="redis" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#d6b656;strokeWidth=2;dashed=1;entryX=0;entryY=0.8;entryDx=0;entryDy=0;fontSize=11;" target="flight" value="Libération auto (TTL)">
+          <mxGeometry relative="1" x="-0.3838" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;" value="Légende" vertex="1">
+          <mxGeometry height="25" width="120" x="1320" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Appel synchrone (REST)" vertex="1">
+          <mxGeometry height="35" width="240" x="1320" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" value="Événement asynchrone (SNS/SQS)" vertex="1">
+          <mxGeometry height="35" width="240" x="1320" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="Soft lock Redis (TTL 10 min)" vertex="1">
+          <mxGeometry height="35" width="240" x="1320" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0E0;strokeColor=#CC0000;fontSize=12;" value="Périmètre PCI-DSS isolé" vertex="1">
+          <mxGeometry height="35" width="240" x="1320" y="185" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
